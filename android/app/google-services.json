@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "281825943913",
+    "project_id": "clero-nw3vi7",
+    "storage_bucket": "clero-nw3vi7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281825943913:android:c8587b021a07e2a651ddf8",
+        "android_client_info": {
+          "package_name": "com.mycompany.clero"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy6XJ-dXZTxgV05GZjLSxKY5gzJM7o9hA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

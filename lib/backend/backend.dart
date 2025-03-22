@@ -8,6 +8,9 @@ import 'schema/util/firestore_util.dart';
 import 'schema/deadlines_record.dart';
 import 'schema/users_record.dart';
 import 'schema/events_record.dart';
+import 'schema/salary_tables_record.dart';
+import 'schema/flight_durations_record.dart';
+import 'schema/user_flights_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -19,6 +22,9 @@ export 'schema/util/schema_util.dart';
 export 'schema/deadlines_record.dart';
 export 'schema/users_record.dart';
 export 'schema/events_record.dart';
+export 'schema/salary_tables_record.dart';
+export 'schema/flight_durations_record.dart';
+export 'schema/user_flights_record.dart';
 
 /// Functions to query DeadlinesRecords (as a Stream and as a Future).
 Future<int> queryDeadlinesRecordCount({
@@ -126,6 +132,117 @@ Future<List<EventsRecord>> queryEventsRecordOnce({
     queryCollectionOnce(
       EventsRecord.collection,
       EventsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query SalaryTablesRecords (as a Stream and as a Future).
+Future<int> querySalaryTablesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SalaryTablesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SalaryTablesRecord>> querySalaryTablesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SalaryTablesRecord.collection,
+      SalaryTablesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SalaryTablesRecord>> querySalaryTablesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SalaryTablesRecord.collection,
+      SalaryTablesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query FlightDurationsRecords (as a Stream and as a Future).
+Future<int> queryFlightDurationsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      FlightDurationsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<FlightDurationsRecord>> queryFlightDurationsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FlightDurationsRecord.collection,
+      FlightDurationsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FlightDurationsRecord>> queryFlightDurationsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FlightDurationsRecord.collection,
+      FlightDurationsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query UserFlightsRecords (as a Stream and as a Future).
+Future<int> queryUserFlightsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserFlightsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserFlightsRecord>> queryUserFlightsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserFlightsRecord.collection,
+      UserFlightsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserFlightsRecord>> queryUserFlightsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserFlightsRecord.collection,
+      UserFlightsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
@@ -10,8 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:intl/intl.dart';
 
-Future<void> addToDeviceCalendar(
-    String requestType, String requestDeadline) async {
+Future<void> addToDeviceCalendar(bool requestTypeFR, bool requestTypeSTF,
+    bool requestTypeLTF, String requestDeadline) async {
   try {
     // ✅ Convert "DD.MM.YYYY" to DateTime format
     List<String> dateParts = requestDeadline.split('.');
@@ -26,9 +27,20 @@ Future<void> addToDeviceCalendar(
       int.parse(dateParts[0]), // Day
     );
 
+    // ✅ Determine Event Title Based on Request Type
+    String eventTitle = "Request Deadline"; // Default title
+
+    if (requestTypeFR) {
+      eventTitle = "Flight Request Deadline";
+    } else if (requestTypeSTF) {
+      eventTitle = "Short-Term Freeday Deadline";
+    } else if (requestTypeLTF) {
+      eventTitle = "Long-Term Freeday Deadline";
+    }
+
     // ✅ Create the event
     final Event event = Event(
-      title: "$requestType Deadline",
+      title: eventTitle,
       description: "", // No description needed
       startDate: eventDate,
       endDate: eventDate,

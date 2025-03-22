@@ -54,7 +54,10 @@
 	<true/>
 
 
-
+	<key>NSCalendarsUsageDescription</key>
+    <string>This app requires calendar access for scheduling events.</string>
+	<key>PermissionGroupNotification</key>
+    <string>This app requires notifications for deadlines.</string>
 
 
 	<key>UILaunchStoryboardName</key>

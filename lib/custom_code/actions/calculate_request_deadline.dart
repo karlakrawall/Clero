@@ -3,14 +3,17 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-List<String> calculateRequestDeadline(String selectedDate, String requestType) {
+List<String> calculateRequestDeadline(String selectedDate, bool requestTypeFR,
+    bool requestTypeSTF, bool requestTypeLTF) {
   try {
     print("Selected Date: $selectedDate");
-    print("Request Type: $requestType");
+    print(
+        "Request Type - FR: $requestTypeFR, STF: $requestTypeSTF, LTF: $requestTypeLTF");
 
     if (selectedDate.trim().isEmpty) {
       print("Error: selectedDate is empty!");
@@ -36,14 +39,14 @@ List<String> calculateRequestDeadline(String selectedDate, String requestType) {
 
     print("Extracted Date - Day: $day, Month: $month, Year: $year");
 
-    int deadlineDay = 19; // Default for Flight Request
+    int deadlineDay = 19; // Default for Flight Request (FR)
     int deadlineMonth;
     int deadlineYear = year;
 
-    // **Set deadline day based on request type**
-    if (requestType == "Short-term freeday") {
+    // **Determine deadline day based on request type**
+    if (requestTypeSTF) {
       deadlineDay = 22;
-    } else if (requestType == "Long-term freeday") {
+    } else if (requestTypeLTF) {
       deadlineDay = 8;
     }
 
@@ -96,7 +99,7 @@ List<String> calculateRequestDeadline(String selectedDate, String requestType) {
     String submissionPeriodOpen = "false"; // Default to false
     String submissionOpensIn = "N/A"; // Default to N/A
 
-    if (requestType == "Short-term freeday") {
+    if (requestTypeSTF) {
       DateTime submissionStartDate = DateTime(deadlineYear, deadlineMonth, 9);
       int daysUntilSubmission = submissionStartDate.difference(today).inDays;
 

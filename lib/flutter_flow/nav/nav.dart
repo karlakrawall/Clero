@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -76,13 +75,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? DashboardWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? DashboardWidget() : WelcomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? DashboardWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? DashboardWidget() : WelcomeWidget(),
         ),
         FFRoute(
           name: ResultWidget.routeName,
@@ -100,29 +99,37 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'selectedDate',
               ParamType.String,
             ),
-            requestType: params.getParam(
-              'requestType',
-              ParamType.String,
-            ),
             submissionOpensIn: params.getParam(
               'submissionOpensIn',
               ParamType.String,
             ),
+            requestTypeFR: params.getParam(
+              'requestTypeFR',
+              ParamType.bool,
+            ),
+            requestTypeSTF: params.getParam(
+              'requestTypeSTF',
+              ParamType.bool,
+            ),
+            requestTypeLTF: params.getParam(
+              'requestTypeLTF',
+              ParamType.bool,
+            ),
             submissionOpen: params.getParam(
               'submissionOpen',
-              ParamType.bool,
+              ParamType.String,
             ),
           ),
         ),
         FFRoute(
-          name: CalculationWidget.routeName,
-          path: CalculationWidget.routePath,
-          builder: (context, params) => CalculationWidget(),
-        ),
-        FFRoute(
           name: DashboardWidget.routeName,
           path: DashboardWidget.routePath,
-          builder: (context, params) => DashboardWidget(),
+          builder: (context, params) => DashboardWidget(
+            landingA220: params.getParam(
+              'landingA220',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: LoginWidget.routeName,
@@ -130,9 +137,121 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: LandingPageWidget.routeName,
-          path: LandingPageWidget.routePath,
-          builder: (context, params) => LandingPageWidget(),
+          name: CalculateBaseSalaryWidget.routeName,
+          path: CalculateBaseSalaryWidget.routePath,
+          builder: (context, params) => CalculateBaseSalaryWidget(),
+        ),
+        FFRoute(
+          name: ProfileWidget.routeName,
+          path: ProfileWidget.routePath,
+          builder: (context, params) => ProfileWidget(),
+        ),
+        FFRoute(
+          name: SalaryCalculationWidget.routeName,
+          path: SalaryCalculationWidget.routePath,
+          builder: (context, params) => SalaryCalculationWidget(),
+        ),
+        FFRoute(
+          name: UserInformationWidget.routeName,
+          path: UserInformationWidget.routePath,
+          builder: (context, params) => UserInformationWidget(),
+        ),
+        FFRoute(
+          name: DeadlineCalculatorWidget.routeName,
+          path: DeadlineCalculatorWidget.routePath,
+          builder: (context, params) => DeadlineCalculatorWidget(),
+        ),
+        FFRoute(
+          name: SalaryCalculationCopyWidget.routeName,
+          path: SalaryCalculationCopyWidget.routePath,
+          builder: (context, params) => SalaryCalculationCopyWidget(),
+        ),
+        FFRoute(
+          name: TestpageWidget.routeName,
+          path: TestpageWidget.routePath,
+          builder: (context, params) => TestpageWidget(),
+        ),
+        FFRoute(
+          name: LogintestWidget.routeName,
+          path: LogintestWidget.routePath,
+          builder: (context, params) => LogintestWidget(),
+        ),
+        FFRoute(
+          name: ForgotPasswordWidget.routeName,
+          path: ForgotPasswordWidget.routePath,
+          builder: (context, params) => ForgotPasswordWidget(),
+        ),
+        FFRoute(
+          name: CreateAccount1Widget.routeName,
+          path: CreateAccount1Widget.routePath,
+          builder: (context, params) => CreateAccount1Widget(),
+        ),
+        FFRoute(
+          name: EmailVerificationSentWidget.routeName,
+          path: EmailVerificationSentWidget.routePath,
+          builder: (context, params) => EmailVerificationSentWidget(),
+        ),
+        FFRoute(
+          name: ForgotEmailSentWidget.routeName,
+          path: ForgotEmailSentWidget.routePath,
+          builder: (context, params) => ForgotEmailSentWidget(),
+        ),
+        FFRoute(
+          name: ResultEarningsWidget.routeName,
+          path: ResultEarningsWidget.routePath,
+          builder: (context, params) => ResultEarningsWidget(
+            totalFlightHours: params.getParam(
+              'totalFlightHours',
+              ParamType.double,
+            ),
+            vacationPayment: params.getParam(
+              'vacationPayment',
+              ParamType.double,
+            ),
+            totalSalary: params.getParam(
+              'totalSalary',
+              ParamType.double,
+            ),
+            salaryPerBlockHours: params.getParam(
+              'salaryPerBlockHours',
+              ParamType.double,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ChangePasswordWidget.routeName,
+          path: ChangePasswordWidget.routePath,
+          builder: (context, params) => ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: ChangePasswordEmailSentWidget.routeName,
+          path: ChangePasswordEmailSentWidget.routePath,
+          builder: (context, params) => ChangePasswordEmailSentWidget(),
+        ),
+        FFRoute(
+          name: DeleteAccountWidget.routeName,
+          path: DeleteAccountWidget.routePath,
+          builder: (context, params) => DeleteAccountWidget(),
+        ),
+        FFRoute(
+          name: TermsAndConditionsWidget.routeName,
+          path: TermsAndConditionsWidget.routePath,
+          builder: (context, params) => TermsAndConditionsWidget(),
+        ),
+        FFRoute(
+          name: CreateAccount2Widget.routeName,
+          path: CreateAccount2Widget.routePath,
+          builder: (context, params) => CreateAccount2Widget(
+            emailAddress: params.getParam(
+              'emailAddress',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: WelcomeWidget.routeName,
+          path: WelcomeWidget.routePath,
+          builder: (context, params) => WelcomeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -303,7 +422,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/login';
+            return '/welcome';
           }
           return null;
         },
@@ -317,15 +436,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: Colors.black,
+                  child: Image.asset(
+                    'assets/images/PlaneLogo.png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

@@ -1,3 +1,32 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "salary_tables",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "salary_table",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "salary_band",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "user_flights",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "user_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "added_at",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }
